@@ -1,4 +1,4 @@
-import makeWire from './wire';
+import makeWire from '../wire';
 
 test('the initial value', () => {
   const wire = makeWire();

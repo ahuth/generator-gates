@@ -1,4 +1,4 @@
-import makeNot from './not';
+import makeNot from '../not';
 
 test('the initial value', () => {
   const not = makeNot();
