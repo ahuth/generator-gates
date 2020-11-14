@@ -1,5 +1,5 @@
-type Signal = 0 | 1;
-type Wire = Generator<Signal, Signal, Signal>;
+export type Signal = 0 | 1;
+export type Wire = Generator<Signal, Signal, Signal>;
 
 export default function* wire(): Wire {
   let value: Signal = 0;
