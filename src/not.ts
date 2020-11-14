@@ -1,10 +1,11 @@
-import makeWire, { Signal, Wire } from './wire';
+import { invert, Signal } from './signal';
+import makeWire, { Wire } from './wire';
 
 export default function* not(): Wire {
   const wire = makeWire();
   let value: Signal = 1;
 
   while (true) {
-    value = yield (wire.next(value).value === 0 ? 1 : 0)
+    value = yield invert(wire.next(value).value);
   }
 }

@@ -1,4 +1,5 @@
-export type Signal = 0 | 1;
+import { Signal } from './signal';
+
 export type Wire = Generator<Signal, Signal, Signal>;
 
 export default function* wire(): Wire {
