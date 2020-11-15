@@ -1,20 +1,20 @@
 import { Gate } from './gate';
 import { Signal } from './signal';
 
-export default function* and(): Gate<[Signal, Signal]> {
-  let value: Signal = 0;
-  let inputs: [Signal, Signal] = [0, 0];
+export default function* and(initialInputs: [Signal, Signal] = [0, 0]): Gate<[Signal, Signal]> {
+  let inputs = initialInputs;
 
   while (true) {
-    inputs = (yield value) ?? inputs;
-
-    if (inputs[0] === 1) {
-      if (inputs[1] === 1) {
-        value = 1;
-        continue;
-      }
-    }
-
-    value = 0;
+    const nextInputs = yield logicalAnd(...inputs);
+    inputs = nextInputs ?? inputs;
   }
+}
+
+function logicalAnd(input1: Signal, input2: Signal): Signal {
+  if (input1 === 1) {
+    if (input2 === 1) {
+      return 1;
+    }
+  }
+  return 0;
 }
