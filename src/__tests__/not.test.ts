@@ -6,7 +6,7 @@ test('the initial value', () => {
   expect(not.next().value).toEqual(1);
 })
 
-test('setting its input', () => {
+test('setting the input value', () => {
   const not = makeNot();
   expect(not.next().value).toEqual(1);
 
